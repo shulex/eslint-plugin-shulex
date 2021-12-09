@@ -1,0 +1,17 @@
+{
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "启动程序", // 调试界面的名称
+      // 运行项目下的这个文件：
+      "program": "${workspaceFolder}/tests/lib/rules/hard-coded-i18n.js",
+      "runtimeExecutable": "/Users/anker/.nvm/versions/node/v14.17.3/bin/node",
+      "args": [] // node 文件的参数
+    }
+  ]
+}
