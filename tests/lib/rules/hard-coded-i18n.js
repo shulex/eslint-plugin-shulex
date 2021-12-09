@@ -17,11 +17,22 @@ tester.run("hard-coded-i18n", rule, {
   valid: [
     {
       code: `<template>
-      <v-icon>mdi-chevron-down</v-icon>
+      <v-btn
+      color="primary"
+      :class="$style.addBtn"
+      outlined
+      block
+      large
+      @click="addCategory"
+    >
+      <v-icon style="margin-right: 12px;">
+        $plusCircleOutline
+      </v-icon>
+    </v-btn>
       <!-- hello -->
       <span>{{$t('hello')}}</span>
     </template>`,
-      options: ["always",{
+      options: [{
         ignoreTags:["v-icon"],
       }],
     },
@@ -32,7 +43,14 @@ tester.run("hard-coded-i18n", rule, {
       <template>
         <!-- 你好 -->
         <span>Hello</span>
+        <v-icon style="margin-right: 12px;">
+          $plusCircleOutline
+        </v-icon>
+        Add Tag
       </template>`,
+      options: [{
+        ignoreTags:["v-icon"],
+      }],
       errors: [
         {
           message:
