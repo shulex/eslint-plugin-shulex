@@ -46,7 +46,6 @@ tester.run("hard-coded-i18n", rule, {
         <v-icon style="margin-right: 12px;">
           $plusCircleOutline
         </v-icon>
-        Add Tag
       </template>`,
       options: [{
         ignoreTags:["v-icon"],
