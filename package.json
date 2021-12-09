@@ -30,8 +30,5 @@
   "peerDependencies": {
     "eslint": ">=6"
   },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "license": "MIT"
 }
