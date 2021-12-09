@@ -33,7 +33,7 @@ Then configure the rules you want to use under the rules section.
   "rules": {
     "shulex/no-local-storage": "error",
     "shulex/no-session-storage": "error",
-    "shulex/hard-coded-i18n": ["error", { "ignoreTags": ["v-icon"] }]
+    "shulex/hard-coded-i18n": ["error", { "ignoreTags": ["v-icon"],"ignores":[":"] }]
   }
 }
 ```

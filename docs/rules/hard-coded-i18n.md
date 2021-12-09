@@ -21,3 +21,9 @@ template里面直接使用硬编码的文案会报错
     <p> {{$t('hello')}} </p>
 </template>
 ```
+
+```jsx
+<template>
+    <p> {{$t('hello')}} :</p>
+</template>
+```
