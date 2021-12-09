@@ -6,19 +6,25 @@ const rule = require("../../../lib/rules/hard-coded-i18n"),
 // ------------------------------------------------------------------------------
 
 const tester = new RuleTester({
-  parser: require.resolve('vue-eslint-parser'),
+  parser: require.resolve("vue-eslint-parser"),
   parserOptions: {
     ecmaVersion: 2020,
-    sourceType: 'module'
-  }
-})
+    sourceType: "module",
+  },
+});
 
-tester.run('hard-coded-i18n', rule, {
+tester.run("hard-coded-i18n", rule, {
   valid: [
-    `<template>
+    {
+      code: `<template>
+      <v-icon>mdi-chevron-down</v-icon>
       <!-- hello -->
       <span>{{$t('hello')}}</span>
-    </template>`
+    </template>`,
+      options: ["always",{
+        ignoreTags:["v-icon"],
+      }],
+    },
   ],
   invalid: [
     {
@@ -27,7 +33,6 @@ tester.run('hard-coded-i18n', rule, {
         <!-- 你好 -->
         <span>Hello</span>
       </template>`,
-      options:['always'],
       errors: [
         {
           message:
@@ -35,6 +40,6 @@ tester.run('hard-coded-i18n', rule, {
           type: "VText",
         },
       ],
-    }
-  ]
-})
+    },
+  ],
+});
