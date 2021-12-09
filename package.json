@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-shulex",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "shulex eslint plugin",
   "keywords": [
     "eslint",

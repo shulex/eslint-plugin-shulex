@@ -31,10 +31,11 @@ tester.run("hard-coded-i18n", rule, {
     </v-btn>
       <!-- hello -->
       <span>{{$t('hello')}} :</span>
+      <span> / </span>
     </template>`,
       options: [{
         ignoreTags:["v-icon"],
-        ignores:[':']
+        ignores:[':','/']
       }],
     },
   ],
