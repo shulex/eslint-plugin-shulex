@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-shulex",
-  "version": "0.0.5",
+  "version": "0.0.2",
   "description": "shulex eslint plugin",
   "keywords": [
     "eslint",
@@ -29,6 +29,9 @@
   },
   "peerDependencies": {
     "eslint": ">=6"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "license": "MIT"
 }
