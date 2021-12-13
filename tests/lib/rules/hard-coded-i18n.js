@@ -16,47 +16,73 @@ const tester = new RuleTester({
 tester.run("hard-coded-i18n", rule, {
   valid: [
     {
-      code: `<template>
-      <v-btn
-      color="primary"
-      :class="$style.addBtn"
-      outlined
-      block
-      large
-      @click="addCategory"
-    >
-      <v-icon style="margin-right: 12px;">
-        $plusCircleOutline
-      </v-icon>
-    </v-btn>
-      <!-- hello -->
-      <span>{{$t('hello')}} :</span>
-      <span> / </span>
-    </template>`,
+      code: `
+      <template>
+        <v-btn color="primary" :class="$style.addBtn" outlined block large @click="addCategory">
+          <v-icon style="margin-right: 12px;">
+            $plusCircleOutline
+          </v-icon>
+        </v-btn>
+        <!-- hello -->
+        <span>{{$t('hello')}} :</span>
+        <span> / </span>
+      </template>`,
       options: [{
         ignoreTags:["v-icon"],
         ignores:[':','/']
       }],
     },
+    {
+      code: `
+      <template>
+        <v-field :label="test" />
+        <v-field :label="$t('test')" />
+      </template>`,
+    },
+    {
+      code: `
+      <template>
+        <v-field :placehold="$t('test')" :label="test" />
+        <v-field :placehold="xxx" :label="$t('test')" />
+      </template>`,
+    },
   ],
   invalid: [
     {
       code: `
-      <template>
-        <!-- 你好 -->
-        <span>Hello</span>
-        <v-icon style="margin-right: 12px;">
-          $plusCircleOutline
-        </v-icon>
-      </template>`,
-      options: [{
-        ignoreTags:["v-icon"],
-      }],
+        <template>
+          <!-- 你好 -->
+          Hello
+        </template>`,
       errors: [
         {
-          message:
-            "For compatibility locales. Do not directly Hard Coded.\nRecommand:\n`{{ $t('xxx') }}`",
+          messageId:'unHardCoded',
           type: "VText",
+        },
+      ],
+    },
+    {
+      code: `
+      <template>
+        <v-field placehold="你好啊1" label="你好啊1"/>
+        <v-field :placehold="'你好啊2'" :label="'你好啊2'"/>
+      </template>`,
+      errors: [
+        {
+          messageId:'unHardCoded',
+          type: "VAttribute",
+        },
+        {
+          messageId:'unHardCoded',
+          type: "VAttribute",
+        },
+        {
+          messageId:'unHardCoded',
+          type: "VAttribute",
+        },
+        {
+          messageId:'unHardCoded',
+          type: "VAttribute",
         },
       ],
     },
