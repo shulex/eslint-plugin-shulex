@@ -16,7 +16,7 @@ const tester = new RuleTester({
 tester.run("hard-coded-i18n", rule, {
   valid: [
     {
-      code:'<v-field :label="`${item.order_number} ${item.store}`"/>'
+      code:'<v-radiu :label="`${item.order_number} ${item.store}`"/>'
     },
     {
       code: `
