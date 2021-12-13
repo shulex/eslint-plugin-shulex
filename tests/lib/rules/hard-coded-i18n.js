@@ -35,13 +35,12 @@ tester.run("hard-coded-i18n", rule, {
     {
       code: `
       <template>
+        <v-field label />
+        <v-field label="" />
+        <v-field label=" " />
+        <v-field label="  " />
         <v-field :label="test" />
         <v-field :label="$t('test')" />
-      </template>`,
-    },
-    {
-      code: `
-      <template>
         <v-field :placehold="$t('test')" :label="test" />
         <v-field :placehold="xxx" :label="$t('test')" />
       </template>`,
