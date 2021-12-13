@@ -16,6 +16,9 @@ const tester = new RuleTester({
 tester.run("hard-coded-i18n", rule, {
   valid: [
     {
+      code:'<v-field :label="`${item.order_number} ${item.store}`"/>'
+    },
+    {
       code: `
       <template>
         <v-btn color="primary" :class="$style.addBtn" outlined block large @click="addCategory">
@@ -35,6 +38,7 @@ tester.run("hard-coded-i18n", rule, {
     {
       code: `
       <template>
+        <v-field :label="option.description" />
         <v-field label />
         <v-field label="" />
         <v-field label=" " />
